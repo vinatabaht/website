@@ -10,9 +10,24 @@ img {
 </style>
 <script>
 function imageClick() {
-    //window.location.href = "sms:9212?body=XN HDN";
+  if(iOS()){
     window.open('sms:9212&body=XN HDN', '_self');
+  }else{
+    window.location.href = "sms:9212?body=XN HDN";
+  }
 }
+function iOS() {
+  return [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ].includes(navigator.platform)
+  // iPad on iOS 13 detection
+  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+} 
 </script>
 </head>
 <body>
